@@ -1,0 +1,604 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /*mengontrol cara ukuran elemen dihitung. Ketika box-sizing dideklarasikan, maka border, padding, dan ukuran sebuah konten box bergantung pada nilai yang ditentukan. (best practices) .*/
+    font-family: 'Poppins', sans-serif;
+
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+    scroll-behavior: smooth;
+    overflow-x: hidden; /*menghilangkan Scrollbar Horizontal*/
+
+    /* background: radial-gradient(circle at bottom, #1F2544,#474F7A, #81689D); */
+    background: radial-gradient(circle at bottom, #3674B5, #578FCA, #A1E3F9);
+}
+
+body::after{
+    content: '';
+    position: absolute;
+
+    /* top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; */
+    inset: 0;
+
+    opacity: 0.4; /*tingkat transparansi*/
+    background: url(./Assets/image/background/cubes.png);
+    pointer-events: none;
+}
+
+.scroll-container {
+    scroll-behavior: smooth;
+    height: 100vh;
+    overflow-y: auto; /*jika tidak ada, maka scroll-snap-type tidak bekerja*/
+    scroll-snap-type: y mandatory; /*mengatur scroll snap pada sumbu y (vertikal) dan memaksa elemen untuk menempel ke posisi scroll tertentu.*/
+}
+
+.section1, .section2, .section3{
+    height: 100vh; /* Setiap section memiliki tinggi penuh layar */
+    scroll-snap-align: start;
+}
+
+/* Navbar Styling */
+/* .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(7, 71, 153, 0.9);
+    z-index: 1000;
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-bottom: #074799 1px solid;
+    z-index: 2;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-menu li {
+    display: inline;
+}
+
+.navbar-menu a {
+    color: #074799;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar-menu a:hover {
+    color: #A1E3F9;
+} */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* background-color: rgba(7, 71, 153, 0.9); */
+    z-index: 1000;
+    padding: 10px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: flex-end; /* Menu di sebelah kanan */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-menu li {
+    display: inline;
+}
+
+.navbar-menu .nav-link {
+    color: #074799;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar-menu .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #000;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.navbar-menu .nav-link:hover {
+    color: #000;
+}
+
+.navbar-menu .nav-link:hover::after {
+    width: 100%;
+}
+
+/* Mobile Menu Toggle */
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.navbar-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #D1F8EF;
+    margin: 4px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Welcome Section Styling */
+.section1{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem; /* Jarak antara teks dan ikon */
+}
+
+.section1 .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section1 .container .text .title{
+    color: #D1F8EF;
+    text-align: center;
+    font-size: 2.3rem;
+    font-weight: 800;
+    background-repeat: no-repeat;
+    background-size: 0% 2%;
+    background-position: 50% 90%;
+    transition: ease 0.8s;
+    cursor: pointer;
+    text-decoration: none;
+    z-index: 1;
+}
+
+.section1 .container .text .title:hover{
+    scale: 1.1;
+    transition: 0.6s;
+    background-size: 100% 2%;
+    text-shadow: 2.5px 2.5px #074799;
+}
+
+.next{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%;
+    background-color:#D1F8EF;
+    z-index: 1;
+}
+
+.next .icon-link{
+    color: #074799;
+}
+
+.next:hover{
+    scale: 1.1;
+    transition: 0.3s;
+    color: #1b0040; 
+}
+.next .icon-link:hover{
+    color: #1b0040; 
+}
+
+/* About Me Section Styling */
+.section2 {
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start; /* Posisikan ke kiri */
+    align-items: center;
+}
+
+/* Posisikan teks ke kiri dengan lebar 500px */
+.section2 .container {
+    display: flex;
+    justify-content: flex-start; /* Memindahkan ke kiri */
+    align-items: center;
+    width: 100%;
+    /*max-width: 1200px;*/ /* Batasan lebar container */
+    padding-left: 5%; /* Memberi jarak dari sisi kiri */
+    gap: 9rem;
+    max-width: 1200px;
+}
+
+/* Mengatur lebar teks */
+
+.about-me {
+    max-width: 600px;
+    z-index: 1;
+}
+
+.about-me h2 {
+    font-size: 3rem;
+    color: #074799;
+}
+
+.about-me p {
+    font-size: 1rem;
+    /* color: #333; */
+    color: #000;
+    line-height: 1.8;
+    margin: 1rem 0;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.social-links .icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #074799;
+    color: #D1F8EF;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+}
+
+.cv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* width: 50px;
+    height: 50px; */
+    padding: 8px;
+    border-radius: 20px;
+    background-color: #074799;
+    color: #D1F8EF;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    gap: 4px;
+}
+
+.social-links .icon-link:hover,
+.social-links .cv:hover {
+    transform: scale(1.1);
+    background-color: #1b0040;
+}
+
+.photo {
+    max-width: 350px;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    z-index: 1;
+    filter: grayscale(100%);
+    transition: filter ease 0.5s;
+}
+
+.photo:hover {
+    /* transform: scale(1.1); */
+    filter: grayscale(0%);
+}
+
+
+/* Contact Section Styling */
+.section3{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.section3 .item {
+    background-color: #074799;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1200px;
+    width: 80%;
+    padding: 70px;
+    border-radius: 70px;
+    z-index: 1;
+}
+
+.contact{
+    position: relative; /* Ubah dari absolute ke relative */
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+    margin-bottom: 60px;
+}
+
+.contact h2{
+    color: #074799;
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.section3 .item .icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-color: #A1E3F9;
+    padding: 30px;
+    width: 50px; /* Ukuran container bulat */
+    height: 50px; /* Ukuran container bulat */
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0 3rem;
+}
+
+.section3 .item .icons a{
+    color: #000;
+}
+
+.section3 .item .icons:hover{
+    transform: scale(1.2);
+    transition: ease 0.3s;
+    background-color: #074799;
+}
+
+/* Tambahan Animasi */
+/* Animasi Fade In */
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+
+/* Animasi Slide Up */
+.slide-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.slide-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsif */
+/* Dekstop */
+@media (max-width: 1119px) {
+    .section2 .container {
+        /* margin-top: 70vh; */
+        /* text-align: center; */
+        /* padding-left: 0; */
+
+        display: flex;
+        justify-content: flex-start; /* Memindahkan ke kiri */
+        align-items: center;
+        width: 90%;
+        padding-left: 5%; /* Memberi jarak dari sisi kiri */
+        gap: 3rem;
+        max-width: 900px;
+    }
+
+    .section2 .about-me h2{
+        font-size: 35px;
+    }
+    .section2 .about-me p{
+        font-size: 14px;
+    }
+
+    .about-me {
+        max-width: 80%;
+    }
+
+    .photo {
+        max-width: 300px;
+    }
+
+    .section3{
+        margin: 70vh auto;
+        margin-bottom: 0;
+        width: 90%;
+        padding: 50px;
+        border-radius: 50px;
+    }
+
+    .section3 .item{
+        gap: 20px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .section1 .container .text .title {
+        font-size: 1.8rem;
+    }
+
+    .section2 .container {
+        display: flex;
+        flex-direction: column-reverse;
+        max-width: 800px;
+        width: 100%;
+        gap: 4px;
+        padding: 130px 0;
+    }
+
+    .section2 .container h2{
+        font-size: 30px;
+    }
+    .section2 .container p{
+        font-size: 12px;
+    }
+
+    .section2 .social-links{
+        margin-top: 2px;
+    }
+
+    .photo {
+        max-width: 250px;
+    }
+
+    .section3 .item {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 40px;
+        border-radius: 40px;
+    }
+
+    .section3 .item .icons {
+        width: 60px;
+        height: 60px;
+    }
+
+    /* baru */
+    .navbar-menu {
+        position: fixed;
+        top: 60px;
+        right: -33%; /* Awalnya di luar layar (1/3 lebar) */
+        width: 33%; /* Lebar menu mobile 1/3 layar */
+        height: calc(100vh - 60px);
+        background-color: #fff;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start; /* Menu dimulai dari atas */
+        gap: 20px;
+        padding-top: 20px;
+        transition: right 0.3s ease;
+    }
+
+    .navbar-menu.active {
+        right: 0; /* Muncul dari kanan */
+    }
+
+    .navbar-toggle {
+        display: flex;
+    }
+
+    .navbar-toggle.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .navbar-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navbar-toggle.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+}
+
+/* Extra Kecil */
+@media (max-width: 576px) {
+    .section1 .container .text .title {
+        font-size: 1.3rem;
+    }
+
+    .about-me h2 {
+        font-size: 2rem;
+    }
+
+    .about-me p {
+        font-size: 0.8rem;
+    }
+
+    .photo {
+        max-width: 200px;
+    }
+
+    .section3 .item {
+        width: 100%;
+        padding: 30px;
+        border-radius: 30px;
+    }
+
+    .contact h2 {
+        font-size: 2rem;
+    }
+
+    .section3 .item .icons {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 330px){
+    .section2 .container {
+        display: flex;
+        flex-direction: column-reverse;
+        max-width: 600px;
+        width: 100%;
+        gap: 2px;
+        padding: 130px 0;
+    }
+
+    .section2 .container h2{
+        font-size: 20px;
+    }
+    .section2 .container p{
+        font-size: 10px;
+    }
+
+    .section2 .container .cv{
+        font-size: 10px;
+    }
+
+    .section3{
+        margin-top: 140px;
+    }
+}
+
+

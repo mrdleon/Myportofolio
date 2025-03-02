@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portofolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <main class="scroll-container">
+
+    <!-- Navigation Bar -->
+    <!-- <nav class="navbar">
+        <div class="navbar-container">
+            <ul class="navbar-menu">
+                <li><a href="#section1">Home</a></li>
+                <li><a href="#section2">About</a></li>
+                <li><a href="#section3">Contact</a></li>
+            </ul>
+        </div>
+    </nav> -->
+
+    <nav class="navbar">
+        <div class="navbar-container">
+            <ul class="navbar-menu">
+                <li><a href="#section1" class="nav-link">Home</a></li>
+                <li><a href="#section2" class="nav-link">About</a></li>
+                <li><a href="#section3" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="navbar-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+        
+    <!-- Welcome Section -->
+    <section class="section1" id="section1">
+        <div class="container">
+            <div class="content">
+                <div class="text">
+                    <a href="#section2" class="title fade-in"> <!-- Tambahkan class fade-in -->
+                        <h2>Welcome To My</h2>
+                        <h2>Portofolio Website</h2>
+                    </a>
+                </div>
+                <div class="next fade-in"> <!-- Tambahkan class fade-in -->
+                    <a href="#section2" class="icon-link">
+                        <i data-feather="arrow-down"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="section2" id="section2">
+        <div class="container">
+            <div class="about-me slide-up"> <!-- Tambahkan class slide-up -->
+                <h2>Hello, I'm</h2>
+                <h2>Dimas Ramadhan</h2>
+                <p>Seorang Mahasiswa dari UPN Veteran Yogyakarta. Saya memiliki minat yang besar di dunia teknologi, khususnya di Machine Learning dan data science. gak tau, bingung mau ngetik apa lagi. Sekian saja dan terimakasih sudah membaca.</p>
+                <div class="social-links">
+                    <a href="https://github.com/mrdleon" class="icon-link"><i data-feather="github"></i></a>
+                    <a href="https://www.linkedin.com/in/dimas-ramadhan" class="icon-link"><i data-feather="linkedin"></i></a>
+                    <div><a href="https://docs.google.com/document/d/1winApyjE00IdqqmqgwfzbNwIS208ia4z/edit?usp=sharing&ouid=118153667999154273089&rtpof=true&sd=true" class="cv"><i data-feather="file-text"></i>Download cv</a></div>
+                </div>
+            </div>
+            <img class="photo slide-up" src="./Assets/image/humans/dimas1.jpg" alt="Dimas Ramadhan"> <!-- Tambahkan class slide-up -->
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section3" id="section3">
+        <div class="contact slide-up"> <!-- Tambahkan class slide-up -->
+            <h2>Contact Me</h2>
+        </div>
+        <div class="item slide-up"> <!-- Tambahkan class slide-up -->
+            <div class="icons">
+                <a href=""><i data-feather="phone"></i></a>
+            </div>
+            <div class="icons">
+                <a href=""><i data-feather="instagram"></i></a>
+            </div>
+            <div class="icons">
+                <a href=""><i data-feather="mail"></i></a>
+            </div>
+        </div>
+    </section>
+    </main>
+
+<!-- Feather Icons -->    
+<script>
+    feather.replace();
+</script>
+
+<!-- js -->
+ <script src="script.js"></script>
+</body>
+</html>

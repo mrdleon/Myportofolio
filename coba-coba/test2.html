@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle at bottom, #3674B5, #578FCA, #A1E3F9);
+            overflow-x: hidden;
+        }
+        .scroll-container {
+            scroll-behavior: smooth;
+            height: 100vh;
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
+        }
+        section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            scroll-snap-align: start;
+        }
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .slide-up {
+            animation: slideUp 1.5s ease-in-out;
+        }
+        .slide-left {
+            animation: slideLeft 1.5s ease-in-out;
+        }
+        .zoom-in {
+            animation: zoomIn 1.5s ease-in-out;
+        }
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideLeft {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body>
+
+<main class="scroll-container">
+    <!-- Welcome Section -->
+    <section class="section1">
+        <div class="container fade-in">
+            <div class="content slide-up">
+                <div class="text">
+                    <a href="#section2" class="title">
+                        <h2>Welcome To My</h2>
+                        <h2>Portofolio Website</h2>
+                    </a>
+                </div>
+                <div class="next bounce">
+                    <a href="#section2" class="icon-link">
+                        <i data-feather="arrow-down"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="section2" id="section2">
+        <div class="container slide-left">
+            <div class="about-me">
+                <h2>Hello, I'm</h2>
+                <h2>Dimas Ramadhan</h2>
+                <p>Seorang Mahasiswa dari UPN Veteran Yogyakarta. Saya memiliki minat yang besar di dunia teknologi, khususnya di Machine Learning dan data science.</p>
+                <div class="social-links fade-in">
+                    <a href="https://github.com/mrdleon" class="icon-link"><i data-feather="github"></i></a>
+                    <a href="https://www.linkedin.com/in/dimas-ramadhan" class="icon-link"><i data-feather="linkedin"></i></a>
+                    <a href="https://docs.google.com/document/d/1winApyjE00IdqqmqgwfzbNwIS208ia4z/edit?usp=sharing" class="cv">
+                        <i data-feather="file-text"></i> Download CV
+                    </a>
+                </div>
+            </div>
+            <img class="photo zoom-in" src="./Assets/image/humans/dimas1.jpg" alt="Dimas Ramadhan">
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section3">
+        <div class="contact slide-up"><h2>Contact Me</h2></div>
+        <div class="item">
+            <div class="icons bounce"><a href="#"><i data-feather="phone"></i></a></div>
+            <div class="icons bounce"><a href="#"><i data-feather="instagram"></i></a></div>
+            <div class="icons bounce"><a href="#"><i data-feather="mail"></i></a></div>
+        </div>
+    </section>
+</main>
+
+<script>
+    feather.replace();
+</script>
+
+</body>
+</html>
