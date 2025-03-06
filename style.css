@@ -340,44 +340,54 @@ body::after{
 }
 
 .gallery-container {
-    width: 80%;
+    width: 100%;
     max-width: 1200px;
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 80px;
-    z-index: 1;
+    text-align: center;
 }
 
-.gallery-container h2{
-    margin-top: 100px;
+.gallery-container h2 {
+    font-size: 2.5rem;
     color: #074799;
-    font-size: 3rem;
-    font-weight: 500;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin-bottom: 20px;
 }
 
 .gallery-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.gallery-track {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    gap: 80px;
+    will-change: transform;
+    animation: slide 20s linear infinite; /* Animasi otomatis */
 }
 
 .gallery-slide {
-    min-width: 100%;
-    box-sizing: border-box;
-    display:flex;
-    justify-content: center;
-    align-items: center;
+    flex: 0 0 auto;
+    width: 300px;
+    margin: 0 10px;
+    overflow: hidden;
 }
 
 .gallery-slide img {
     width: 100%;
-    max-width: 450px;
-    object-fit: cover;
+    max-width: 400px;
     height: auto;
     display: block;
+    object-fit: cover;
+}
+
+/* Animasi Geser */
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-100% - 80px)); /* Perhitungan agar animasi mulus */
+    }
 }
 
 

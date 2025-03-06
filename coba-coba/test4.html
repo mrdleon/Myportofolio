@@ -1,0 +1,110 @@
+<!-- Galery Section -->
+<section class="section3" id="section3">
+    <div class="gallery-container">
+        <h2>Gallery</h2>
+        <div class="gallery-slider">
+            <div class="gallery-track" id="galleryTrack">
+                <!-- Gambar akan diisi oleh JavaScript -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Gallery Section Styling */
+.section3 {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-container {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.gallery-container h2 {
+    font-size: 2.5rem;
+    color: #074799;
+    margin-bottom: 20px;
+}
+
+.gallery-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-track {
+    display: flex;
+    gap: 80px;
+    will-change: transform;
+    animation: slide 20s linear infinite; /* Animasi otomatis */
+}
+
+.gallery-slide {
+    flex: 0 0 auto;
+    width: 300px;
+    margin: 0 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.gallery-slide img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Animasi Geser */
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-100% - 80px)); /* Perhitungan agar animasi mulus */
+    }
+}
+</style>
+
+<script>
+// JavaScript untuk galeri looping seamless
+const images = [
+    './Assets/image/albums/photo1.jpg',
+    './Assets/image/albums/photo2.jpg',
+    './Assets/image/albums/photo3.jpg',
+    './Assets/image/albums/photo4.jpg',
+    './Assets/image/albums/photo5.jpg'
+];
+
+const galleryTrack = document.getElementById('galleryTrack');
+
+// Fungsi untuk mengisi gambar dan kloning untuk efek seamless
+function setupGallery() {
+    // Tambah gambar asli
+    images.forEach((src) => {
+        const slide = createSlide(src);
+        galleryTrack.appendChild(slide);
+    });
+
+    // Kloning gambar di awal dan akhir untuk looping
+    images.forEach((src) => {
+        const slide = createSlide(src);
+        galleryTrack.appendChild(slide);
+    });
+}
+
+// Fungsi untuk membuat elemen slide
+function createSlide(src) {
+    const slide = document.createElement('div');
+    slide.className = 'gallery-slide';
+    slide.innerHTML = `<img src="${src}" alt="Gallery Image">`;
+    return slide;
+}
+
+setupGallery();
+</script>
